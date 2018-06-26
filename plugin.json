@@ -1,0 +1,43 @@
+{
+    "version"           :   "2.10.0",
+    "license"           :   "AGPL-3.0",
+    "name"              :   "CeresVanillaBilliard",
+    "marketplaceName"   :   {"de":"CeresVanillaBilliard","en":"CeresVanillaBilliard"},
+    "pluginIcon"        :   "icon_plugin_xs.png",
+    "authorIcon"        :   "icon_author_xs.png",
+    "email"             :   "steven.resch@four-and-more.net",
+    "phone"             :   "*",
+    "description"       :   "A Billiard theme for Ceres.",
+    "shortDescription"  :   { "de": "Ein Billiard-Theme für Ceres.", "en": "A Billiard theme for Ceres." },
+    "namespace"         :   "CeresVanillaBilliard",
+    "author"            :   "Steven Resch",
+    "keywords"          :   ["plentymarkets", "plugins", "layout", "theme", "ceres"],
+    "price"             :   0,
+    "categories"        :   [3518],
+    "type"              :   "theme",
+    "require"           :   ["Ceres"],
+    "serviceProvider"   :   "CeresVanillaBilliard\\Providers\\CeresVanillaBilliardServiceProvider",
+    "dataProviders"     :
+    [
+        {
+            "key"           :"CeresVanillaBilliard\\Containers\\CeresVanillaBilliardContainer",
+            "name"          :"Stylesheet",
+            "description"   :"Add changes to the CSS file"
+        },
+        {
+            "key"           :"CeresVanillaBilliard\\Containers\\CeresVanillaBilliardItemListContainer1",
+            "name"          :"First item list",
+            "description"   :"Display a configurable list of items in your online store"
+        },
+        {
+            "key"           :"CeresVanillaBilliard\\Containers\\CeresVanillaBilliardItemListContainer2",
+            "name"          :"Second item list",
+            "description"   :"Display a configurable list of items in your online store"
+        },
+        {
+            "key"           :"CeresVanillaBilliard\\Containers\\CeresVanillaBilliardItemListContainer3",
+            "name"          :"Third item list",
+            "description"   :"Display a configurable list of items in your online store"
+        }
+    ]
+}

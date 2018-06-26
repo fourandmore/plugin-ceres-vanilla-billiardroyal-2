@@ -9,7 +9,7 @@
 }
 .footer {
     color: #fff;
-    background-color: #1b1b1b;
+    background-color: #2C1111;
     margin-top: 50px;
 }
 .footer a {
@@ -19,7 +19,7 @@
 	font-weight: bold;
 }
 a {
-	color: #7EA93A;
+	color: #2C1111;
 }
 .footer .fa-chevron-up {
 	color: #000;
@@ -30,36 +30,8 @@ a {
 #eKomiWidget_default img {
 	max-width: 130px;
 }
-.top-bar {
-    background-color: #1b1b1b;
+.top-bar {background-color: #000;
 }
 .wrapper-main .navbar {
 	background: #ffffff;
-}
-ul.mainmenu > li:hover {
-	background: #7EA93A!important;
-}
-ul.mainmenu > li > ul > li:hover {
-	background: #7EA93A!important;
-}
-.top-bar .controls-list li a:hover{
-	background: #7EA93A!important;
-}
-.top-bar .controls-list>li a:hover(.btn) {
-	background: #7EA93A!important;
-}
-.sidebar-categories ul li.active > a {
-    background: #7EA93A;
-}
-.section-header {
-	background: #1b1b1b;
-}
-.anicon.anicon-search-xcross[aria-expanded="false"]:hover > .anicon-search-item::after {
-	background: #7EA93A;
-}
-.top-bar .controls-list .control-user #login-change > .dropdown .dropdown-menu a:hover {
-	background: #7EA93A;
-}
-.homepage-title {
-	background: #7EA93A;
 }

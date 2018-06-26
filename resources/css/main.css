@@ -37,7 +37,10 @@ a {
 #vue-app {
 	background-image:url(https://cdn02.plentymarkets.com/t8d6ebrty3oo/frontend/Bilder_Webseiten/Billiard_Royal/background.png);
 }
-
+.page-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
 
 
 

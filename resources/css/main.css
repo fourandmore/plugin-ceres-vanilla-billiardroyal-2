@@ -29,10 +29,13 @@ a {
 #eKomiWidget_default img {
 	max-width: 130px;
 }
-.top-bar {background-color: #000;
+.top-bar {background-color: #2C1111;
 }
 .wrapper-main .navbar {
 	background: #ffffff;
+}
+#vue-app {
+	background-image:url(https://cdn02.plentymarkets.com/t8d6ebrty3oo/frontend/Bilder_Webseiten/Billiard_Royal/background.png);
 }
 
 

@@ -29,7 +29,8 @@ a {
 #eKomiWidget_default img {
 	max-width: 130px;
 }
-.top-bar {background-color: #2C1111;
+.top-bar { 
+	background-color: #2C1111;
 }
 .wrapper-main .navbar {
 	background: #ffffff;
@@ -40,6 +41,7 @@ a {
 .page-content {
     padding-left: 15px;
     padding-right: 15px;
+	background-color: #f1e7db;
 }
 
 

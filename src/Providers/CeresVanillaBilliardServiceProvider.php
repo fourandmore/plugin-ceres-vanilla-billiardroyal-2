@@ -115,7 +115,7 @@ class CeresVanillaBilliardServiceProvider extends ServiceProvider
 
             $dispatcher->listen('IO.tpl.checkout', function (TemplateContainer $container)
             {
-                $container->setTemplate('CeresVanillaBilliard::Checkout.Checkout');
+                $container->setTemplate('CeresVanillaBilliard::Checkout.CheckoutView');
                 return false;
             }, self::PRIORITY);
         }

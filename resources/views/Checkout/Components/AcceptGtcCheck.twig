@@ -18,14 +18,10 @@
                     <span>{{ trans("Ceres::Template.checkoutPrivacyPolicy", {"hyphen": "&shy;"}) }}</span>
                 </a><!--
             -->{% endset %}
-			
-			{% set extracancellationContent %}<!--
-                --><a href="https://billiard-royal.com" target="_blank">
-                    <span>gesonderte Widerrufsbedingungen für Dienstleistungen</span>
-                </a><!--
-            -->{% endset %}
 
-            {{ trans("Ceres::Template.checkoutChooseOur", {"gtc": gtcContent, "cancellation": cancellationContent, "policy": policyContent}) }} "erweiterte Widerrufserklärung.": extracancellationContent
+            {{ trans("Ceres::Template.checkoutChooseOur", {"gtc": gtcContent, "cancellation": cancellationContent, "policy": policyContent}) }} <a href="https://billiard-royal.com" target="_blank">
+                    <span>gesonderte Widerrufsbedingungen für Dienstleistungen</span>
+                </a> zur Kenntnis.
         {% endautoescape %}
     </label>
 </script>

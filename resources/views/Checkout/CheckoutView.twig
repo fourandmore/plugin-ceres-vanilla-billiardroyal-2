@@ -1,31 +1,32 @@
+
 {% extends getPartial('page-design') %}
-{% import "CeresVanillaBilliard::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
 {% block PartialHead %}
     <meta name="robots" content="NOINDEX, NOFOLLOW">
-    <title>{{ trans("CeresVanillaBilliard::Template.checkout") }} | {{ trans("CeresVanillaBilliard::Template.headerCompanyName") }}</title>
+    <title>{{ trans("Ceres::Template.checkout") }} | {{ trans("Ceres::Template.headerCompanyName") }}</title>
 {% endblock %}
 
 {% block PageBody %}
 
-    {{ component( "CeresVanillaBilliard::Customer.Components.AddressSelect.AddressSelect" ) }}
+    {{ component( "Ceres::Customer.Components.AddressSelect.AddressSelect" ) }}
     {{ component( "CeresVanillaBilliard::Checkout.Components.AcceptGtcCheck" ) }}
-    {{ component( "CeresVanillaBilliard::Checkout.Components.PaymentProviderSelect" ) }}
-    {{ component( "CeresVanillaBilliard::Checkout.Components.ShippingPrivacyHintCheck" ) }}
-    {{ component( "CeresVanillaBilliard::Checkout.Components.ShippingProfileSelect" ) }}
-    {{ component( "CeresVanillaBilliard::Checkout.Components.PlaceOrder" ) }}
-    {{ component( "CeresVanillaBilliard::Checkout.Components.ContactWishInput" ) }}
-    {{ component( "CeresVanillaBilliard::Basket.Components.Coupon" ) }}
-    {{ component( "CeresVanillaBilliard::Basket.Components.BasketList" ) }}
-    {{ component( "CeresVanillaBilliard::Basket.Components.BasketTotals" ) }}
-    {{ component( "CeresVanillaBilliard::Checkout.Components.Checkout" ) }}
+    {{ component( "Ceres::Checkout.Components.PaymentProviderSelect" ) }}
+    {{ component( "Ceres::Checkout.Components.ShippingPrivacyHintCheck" ) }}
+    {{ component( "Ceres::Checkout.Components.ShippingProfileSelect" ) }}
+    {{ component( "Ceres::Checkout.Components.PlaceOrder" ) }}
+    {{ component( "Ceres::Checkout.Components.ContactWishInput" ) }}
+    {{ component( "Ceres::Basket.Components.Coupon" ) }}
+    {{ component( "Ceres::Basket.Components.BasketList" ) }}
+    {{ component( "Ceres::Basket.Components.BasketTotals" ) }}
+    {{ component( "Ceres::Checkout.Components.Checkout" ) }}
 
     <div class="page-content checkout container-max">
-        {% set overrideCheckout = LayoutContainer.show("CeresVanillaBilliard::Checkout") %}
+        {% set overrideCheckout = LayoutContainer.show("Ceres::Checkout") %}
         {% if overrideCheckout|trim is empty %}
             <div class="row m-t-1">
                 <div class="col-xs-12">
-                    <h1 class="h2">{{ trans("CeresVanillaBilliard::Template.checkout") }}</h1>
+                    <h1 class="h2">{{ trans("Ceres::Template.checkout") }}</h1>
                     <hr>
                 </div>
             </div>
@@ -36,15 +37,15 @@
                     <div class="col-md-7">
                         <div class="col-xs-12 p-t-2 bg-white">
                             <div id="registry-form-container" class="registry-form-container main-col" data-id="0" data-status="2">
-                                {% set overrideAddressLists = LayoutContainer.show("CeresVanillaBilliard::Checkout.AddressLists") %}
+                                {% set overrideAddressLists = LayoutContainer.show("Ceres::Checkout.AddressLists") %}
                                 {% if overrideAddressLists|trim is empty %}
-                                    {% set overrideBillingAddress = LayoutContainer.show("CeresVanillaBilliard::Checkout.BillingAddress") %}
+                                    {% set overrideBillingAddress = LayoutContainer.show("Ceres::Checkout.BillingAddress") %}
                                     {% if overrideBillingAddress|trim is empty %}
                                         <header class="m-b-1">
-                                            <h3>{{ trans("CeresVanillaBilliard::Template.checkoutInvoiceAddress") }}</h3>
+                                            <h3>{{ trans("Ceres::Template.checkoutInvoiceAddress") }}</h3>
                                         </header>
 
-                                        {{ LayoutContainer.show("CeresVanillaBilliard::Checkout.BeforeBillingAddress") }}
+                                        {{ LayoutContainer.show("Ceres::Checkout.BeforeBillingAddress") }}
                                         <div class="invoice-addresses-select">
                                             <invoice-address-select
                                                     :address-list="{{ services.customer.getAddresses(1) | json_encode }}"
@@ -52,63 +53,63 @@
                                                     :selected-address-id="{{ services.checkout.getBillingAddressId() | json_encode }}">
                                             </invoice-address-select>
                                         </div>
-                                        {{ LayoutContainer.show("CeresVanillaBilliard::Checkout.AfterBillingAddress") }}
+                                        {{ LayoutContainer.show("Ceres::Checkout.AfterBillingAddress") }}
                                     {% else %}
                                         {{ overrideBillingAddress }}
                                     {% endif %}
 
-                                    {% set overrideShippingAddress = LayoutContainer.show("CeresVanillaBilliard::Checkout.ShippingAddress") %}
+                                    {% set overrideShippingAddress = LayoutContainer.show("Ceres::Checkout.ShippingAddress") %}
                                     {% if overrideShippingAddress|trim is empty %}
                                         <header class="m-b-1">
-                                            <h3>{{ trans("CeresVanillaBilliard::Template.checkoutShippingAddress") }}</h3>
+                                            <h3>{{ trans("Ceres::Template.checkoutShippingAddress") }}</h3>
                                         </header>
 
-                                        {{ LayoutContainer.show("CeresVanillaBilliard::Checkout.BeforeShippingAddress") }}
+                                        {{ LayoutContainer.show("Ceres::Checkout.BeforeShippingAddress") }}
                                         <div class="shipping-addresses-select">
                                             <shipping-address-select
                                                     :address-list="{{ services.customer.getAddresses(2) | json_encode }}"
                                                     :selected-address-id="{{ services.checkout.getDeliveryAddressId() | json_encode }}">
                                             </shipping-address-select>
                                         </div>
-                                        {{ LayoutContainer.show("CeresVanillaBilliard::Checkout.AfterShippingAddress") }}
+                                        {{ LayoutContainer.show("Ceres::Checkout.AfterShippingAddress") }}
                                     {% else %}
                                         {{ overrideShippingAddress }}
                                     {% endif %}
                                 {% else %}
                                     {{ overrideAddressLists }}
                                 {% endif %}
-                                {% set overrideShippingProfiles = LayoutContainer.show("CeresVanillaBilliard::Checkout.ShippingProfileList") %}
+                                {% set overrideShippingProfiles = LayoutContainer.show("Ceres::Checkout.ShippingProfileList") %}
                                 {% if overrideShippingProfiles|trim is empty %}
                                     <header class="m-b-1">
-                                        <h3>{{ trans("CeresVanillaBilliard::Template.checkoutShippingProfile") }}</h3>
+                                        <h3>{{ trans("Ceres::Template.checkoutShippingProfile") }}</h3>
                                     </header>
 
-                                    {{ LayoutContainer.show("CeresVanillaBilliard::Checkout.BeforeShippingProfileList") }}
+                                    {{ LayoutContainer.show("Ceres::Checkout.BeforeShippingProfileList") }}
                                     <div class="shipping-method-select">
                                         <shipping-profile-select template="#vue-shipping-profile-select"></shipping-profile-select>
                                     </div>
-                                    {{ LayoutContainer.show("CeresVanillaBilliard::Checkout.AfterShippingProfileList") }}
+                                    {{ LayoutContainer.show("Ceres::Checkout.AfterShippingProfileList") }}
                                 {% else %}
                                     {{ overrideShippingProfiles }}
                                 {% endif %}
 
-                                {% set overridePaymentList = LayoutContainer.show("CeresVanillaBilliard::Checkout.PaymentList") %}
+                                {% set overridePaymentList = LayoutContainer.show("Ceres::Checkout.PaymentList") %}
                                 {% if overridePaymentList|trim is empty %}
                                     <header class="m-b-1">
-                                        <h3>{{ trans("CeresVanillaBilliard::Template.checkoutPaymentMethod") }}</h3>
+                                        <h3>{{ trans("Ceres::Template.checkoutPaymentMethod") }}</h3>
                                     </header>
 
-                                    {{ LayoutContainer.show("CeresVanillaBilliard::Checkout.BeforePaymentList") }}
+                                    {{ LayoutContainer.show("Ceres::Checkout.BeforePaymentList") }}
                                     <div class="payment-method-select">
                                         <payment-provider-select template="#vue-payment-provider-select"></payment-provider-select>
                                     </div>
-                                    {{ LayoutContainer.show("CeresVanillaBilliard::Checkout.AfterPaymentList") }}
+                                    {{ LayoutContainer.show("Ceres::Checkout.AfterPaymentList") }}
                                 {% else %}
                                     {{ overridePaymentList }}
                                 {% endif %}
 
                                 <header>
-                                    <h3>{{ trans("CeresVanillaBilliard::Template.checkoutContactWish") }}</h3>
+                                    <h3>{{ trans("Ceres::Template.checkoutContactWish") }}</h3>
                                 </header>
 
                                 <contact-wish-input class="p-b-1" template="#vue-contact-wish-input"></contact-wish-input>
@@ -118,7 +119,7 @@
                                 <div class="form-check">
                                     <accept-gtc-check template="#vue-accept-gtc-check"></accept-gtc-check>
                                 </div>
-                                {{ LayoutContainer.show("CeresVanillaBilliard::Checkout.OptIns") }}
+                                {{ LayoutContainer.show("Ceres::Checkout.OptIns") }}
                             </div>
                         </div>
                     </div>
@@ -126,7 +127,7 @@
 
                     <div class="col-md-5 checkout-rightside">
                         <div class="col-xs-12 bg-white p-t-2">
-                            <h3>{{ trans("CeresVanillaBilliard::Template.checkoutBasket") }}</h3>
+                            <h3>{{ trans("Ceres::Template.checkoutBasket") }}</h3>
                             <hr class="m-b-0">
                         </div>
                         <div class="col-xs-12 p-t-2 bg-white">
@@ -147,17 +148,17 @@
                         <div class="col-xs-12 p-t-1 bg-white">
                             <aside class="sidebar">
                                 <div class="cmp cmp-checkout-sidebar">
-                                    {{ LayoutContainer.show("CeresVanillaBilliard::Checkout.BeforeBasketTotals") }}
+                                    {{ LayoutContainer.show("Ceres::Checkout.BeforeBasketTotals") }}
                                     <basket-totals template="#vue-basket-totals"></basket-totals>
-                                    {{ LayoutContainer.show("CeresVanillaBilliard::Checkout.AfterBasketTotals") }}
+                                    {{ LayoutContainer.show("Ceres::Checkout.AfterBasketTotals") }}
                                 </div>
                             </aside>
                         </div>
 
                         <div class="col-xs-12 p-b-1 bg-white">
-                            {{ LayoutContainer.show("CeresVanillaBilliard::Checkout.BeforePlaceOrder") }}
+                            {{ LayoutContainer.show("Ceres::Checkout.BeforePlaceOrder") }}
                             <place-order template="#vue-place-order" target-continue="{{ homepageURL }}{% if homepageURL | last != '/'%}/{% endif %}place-order{% if urls.appendTrailingSlash %}/{% endif %}" @payment-response="checkoutComp.showModal($event)"></place-order>
-                            {{ LayoutContainer.show("CeresVanillaBilliard::Checkout.AfterPlaceOrder") }}
+                            {{ LayoutContainer.show("Ceres::Checkout.AfterPlaceOrder") }}
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,7 @@
         {% autoescape false %}
             {% set gtcContent %}<!--
                 --><a href="{{ urls.gtc }}" target="_blank">
-                    <span>{{ trans("Ceres::Template.checkoutGtc") }}</span>
+                    <strong>{{ trans("Ceres::Template.checkoutGtc") }}</strong>
                 </a><!--
             -->{% endset %}
             {% set cancellationContent %}<!--
@@ -15,13 +15,12 @@
 
             {% set policyContent %}<!--
                 --><a href="{{ urls.privacyPolicy }}" target="_blank">
-                    <span>{{ trans("Ceres::Template.checkoutPrivacyPolicy", {"hyphen": "&shy;"}) }}</span>
+                    <strong>{{ trans("Ceres::Template.checkoutPrivacyPolicy", {"hyphen": "&shy;"}) }}</strong>
                 </a><!--
             -->{% endset %}
 
             {{ trans("Ceres::Template.checkoutChooseOur", {"gtc": gtcContent, "cancellation": cancellationContent, "policy": policyContent}) }} <a href="https://billiard-royal.com" target="_blank">
-                    <span>gesonderte Widerrufsbedingungen für Dienstleistungen</span>
-                </a> zur Kenntnis.
+                    <strong>gesonderte Widerrufsbedingungen</strong></a> für Dienstleistungen zur Kenntnis.
         {% endautoescape %}
     </label>
 </script>

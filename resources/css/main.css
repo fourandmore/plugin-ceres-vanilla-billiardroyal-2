@@ -30,7 +30,7 @@ a {
 	max-width: 130px;
 }
 .top-bar { 
-	background-color: #2C1111;
+	background-color: #2C1111!important;
 }
 .wrapper-main .navbar {
 	background: rgb(241, 231, 219);
